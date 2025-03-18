@@ -22,5 +22,4 @@ jobs:
       # gh agents has built in packages:
       # https://github.com/actions/runner-images
       # https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md
-      - run: go verison # prints go version
       - run: node --version # prints node version
