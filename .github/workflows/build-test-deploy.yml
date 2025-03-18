@@ -56,5 +56,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: angular-app/dist/browser
-          branch: main
+          branch: prod
           token: ${{ secrets.GH_TOKEN }}
