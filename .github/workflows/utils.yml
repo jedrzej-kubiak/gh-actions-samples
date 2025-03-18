@@ -14,7 +14,6 @@ jobs:
       run:
         working-directory: ./utils
     steps:
-      - run: pwd && ls -al # print working directory and list all files
       - uses: actions/checkout@v4 # checkout the repository code
       - run: pwd && ls -al # prints checkout files
 
