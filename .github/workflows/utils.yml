@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./utils
+        working-directory: ./../utils
     steps:
       - run: echo "Building utils" # echoing some text to the console
       - run: echo "$(cat utils.txt)" # echoing text from file
