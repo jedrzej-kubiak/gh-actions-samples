@@ -17,3 +17,19 @@ jobs:
           node-version: "20.x"
       - run: npm install
       - run: npm run build
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./angular-app
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: use node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+      - run: npm install
+      - run: ng test --no-watch --no-progress --browsers=ChromeHeadless
