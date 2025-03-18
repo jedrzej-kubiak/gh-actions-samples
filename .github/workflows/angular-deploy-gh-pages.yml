@@ -1,6 +1,11 @@
-name: build-test-deploy
+name: Angular Build Test Deploy
 
-on: push
+on:
+  push:
+    paths:
+      - "angular-app/**"
+      - ".github/workflows/angular-deploy-gh-pages.yml"
+  workflow_dispatch: # manually trigger the workflow
 
 jobs:
   build:

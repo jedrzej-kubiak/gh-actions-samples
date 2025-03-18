@@ -1,0 +1,27 @@
+name: utils
+
+on:
+  push:
+    paths:
+      - "utils/**"
+      - ".github/workflows/utils.yml"
+  workflow_dispatch: # manually trigger the workflow
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./utils
+    steps:
+      - run: echo "Building utils" # echoing some text to the console
+      - run: echo "$(cat utils.txt)" # echoing text from file
+
+      - run: pwd && ls -al # print working directory and list all files
+      - uses: actions/checkout@v4 # checkout the repository code
+      - run: pwd && ls -al # prints checkout files
+      # gh agents has built in packages:
+      # https://github.com/actions/runner-images
+      # https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md
+      - run: go verison # prints go version
+      - run: node --version # prints node version
