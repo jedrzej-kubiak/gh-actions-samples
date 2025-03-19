@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - "go-app/**"
-      - ".github/workflows/go-run.yml"
+      - ".github/workflows/self-hosted-runner.yml"
   workflow_dispatch: # manually trigger the workflow
 
 jobs:
