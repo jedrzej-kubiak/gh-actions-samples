@@ -1,0 +1,23 @@
+name: Go Build Run Deploy
+
+on:
+  push:
+    paths:
+      - "go-app/**"
+      - ".github/workflows/go-run.yml"
+  workflow_dispatch: # manually trigger the workflow
+
+jobs:
+  build:
+    runs-on: self-hosted
+    defaults:
+      run:
+        working-directory: ./go-app
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: use go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+      - run: go run main.go
