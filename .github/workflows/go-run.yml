@@ -10,6 +10,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./go-app
     steps:
       - name: checkout
         uses: actions/checkout@v4
