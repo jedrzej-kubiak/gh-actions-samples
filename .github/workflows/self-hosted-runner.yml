@@ -1,4 +1,4 @@
-name: Go Build Run Deploy
+name: self-hosted-runner example
 
 on:
   push:
