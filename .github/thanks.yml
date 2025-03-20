@@ -1,0 +1,45 @@
+name: thanks (adds comments and labels to issues)
+
+on:
+  issues:
+    types: opened
+  workflow_dispatch:
+
+jobs:
+  thanks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7 # https://github.com/actions/github-script
+        id: issue_script
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issue_number = context.issue.number || 2;
+            console.log(`issue_number: ${issue_number}`);
+
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            // lookup issue info
+              const issue = await github.rest.issues.get({
+              owner, repo, issue_number
+            });
+            console.log(`issue: ${issue}`);
+
+            //create a comment
+            const comment = await github.rest.issues.createComment({
+              owner, repo, issue_number,
+              body: `Thanks for opening this issue!`
+            });
+            console.log(`comment id : ${comment.data.id}`);
+            console.log(comment.data);
+
+            //auto-label the issue
+            const labels = await github.rest.issues.addLabels({
+              owner, repo, issue_number,
+              labels: ['thanks']
+            });
+
+            //make a coment id avaiable to subsequent steps
+            return comment.data.id;
+      - run: echo 'comment id=${{ steps.issue_script.outputs }}'
