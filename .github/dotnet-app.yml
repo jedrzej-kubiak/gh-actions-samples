@@ -1,0 +1,24 @@
+name: Build dotnet app
+
+on:
+  push:
+    paths:
+      - "dotnet-app/**"
+      - ".github/workflows/dotnet-app.yml"
+  workflow_dispatch: # manually trigger the workflow
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./dotnet-app
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: use go
+        uses: dotnet-app
+        with:
+          dotnet-version: "9.0"
+
+      - run: dotnet build dotnet-app.csproj
