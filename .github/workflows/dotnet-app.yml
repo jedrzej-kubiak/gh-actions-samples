@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./dotnet-app
+        working-directory: ./dotnet-api
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -21,4 +21,4 @@ jobs:
         with:
           dotnet-version: "9.x"
 
-      - run: dotnet build dotnet-app.csproj
+      - run: dotnet build dotnet-api.csproj
