@@ -16,9 +16,9 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4
-      - name: use go
-        uses: dotnet-app
+      - name: use dotnet
+        uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: "9.0"
+          dotnet-version: "9.1.x"
 
       - run: dotnet build dotnet-app.csproj
