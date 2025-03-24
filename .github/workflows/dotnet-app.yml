@@ -19,6 +19,6 @@ jobs:
       - name: use dotnet
         uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: "9.1.x"
+          dotnet-version: "9.x"
 
       - run: dotnet build dotnet-app.csproj
