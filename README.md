@@ -7,4 +7,4 @@ _This repo contains notes and examples from pluralsight **github actions** learn
 ## Courses in GH actions path:
 
 - Github Actions: The Big Picture
-- Authoring and Maintaining Github Actions Workflows
+- Authoring and Maintaining Github Actions Workflows https://github.com/g0t4/course-gh-actions
